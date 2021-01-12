@@ -1,22 +1,31 @@
-/* Promesas
+// Async y Await
 
-    Una Promesa es un proxy para un valor no necesariamente conocido en el momento que es creada la promesa.
-    Permite asociar manejadores que actuarán asincrónicamente sobre un eventual valor en caso de éxito,
-    o la razón de falla en caso de una falla. Esto permite que métodos asíncronos devuelvan valores como si fueran síncronos:
-    en vez de inmediatamente retornar el valor final, el método asíncrono devuelve una promesa de suministrar el valor en algún
-    Una Promesa se encuentra en uno de los siguientes estados:
+// Async
+// Peticion de tipo response, await espera a la promesa fetch termine
 
-    pendiente (pending): estado inicial, no cumplida o rechazada.
-    cumplida (fulfilled): significa que la operación se completó satisfactoriamente.
-    rechazada (rejected): significa que la operación falló.
-*/
 
-const prom1 = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        reject('Se termino el timeout');
-    }, 3000);
-});
+//  Await
+//  La unica condicion para utilizarl Await es que debe estar dentro de una funcion Async
+//
+//  resp => respuesta de la data que nos retorna la API
+//  data =>  respuesta JSON que regresa una promesa, por lo que debe a esperar a la respuesta para obtener la data
 
-prom1.then(mensaje => console.log(mensaje))
-    .catch(console.warn)
-console.log('Fin');
+const getImage = async() => {
+    try {
+        const apiKey = 'F5lvX58U4STuXT8YOaCaabLVkjiBefJm';
+        const resp = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${ apiKey }`);
+        const { data } = await resp.json();
+        const { url } = data.images.original;
+
+        const img = document.createElement('img');
+        img.src = url;
+
+        document.body.append(img);
+        console.log(url);
+        console.log(data);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+getImage();
