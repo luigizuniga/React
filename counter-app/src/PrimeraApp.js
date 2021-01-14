@@ -14,10 +14,6 @@ const PrimeraApp = ({ title, subtitle, counter }) => {
         lastname: 'Zuniga'
     };
 
-    if(!counter) {
-        console.log("No se encuentra la propiedad counter : "  + counter);
-    }
-
     return (
         <Fragment>
             <h1>{ message }</h1>
