@@ -15,6 +15,4 @@ describe('Pruebas en #02-template-string.js', () => {
 
         expect(saludo).toBe('Hola Carlos!');
     })
-
-
 });
