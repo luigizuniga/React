@@ -8,4 +8,4 @@ import './index.css';
 const counterapp = document.querySelector('#counter');
 
 // ReactDOM.render(<PrimeraApp title counter="init"/>, firstapp);
-ReactDOM.render( <CounterApp value = { 0 } /> , counterapp);
+ReactDOM.render( <CounterApp count = { 0 } /> , counterapp);
