@@ -11,6 +11,7 @@ describe('Pruebas con 11-async-await y fetch', () => {
             // retornar url en formato string
             expect(typeof url).toBe('string');
 
+            // retonar en true o false la coincidencia enviada
             console.log(url.includes(exp));
             expect(url.includes(exp)).toBe(true);
 

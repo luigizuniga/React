@@ -1,4 +1,3 @@
-
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,30 +6,25 @@ import PropTypes from 'prop-types';
     Los Fragmentos te permiten agrupar una lista de hijos sin agregar nodos extra al DOM
 */
 
-const PrimeraApp = ({ title, subtitle, counter }) => {
-    const message = "Welcome";
-    const user = {
-        name: 'Luigi',
-        lastname: 'Zuniga'
-    };
+/*
+    Modificacion para Unit Testing
+*/
+const PrimeraApp = ({ saludo, subtitulo }) => {
 
     return (
-        <Fragment>
-            <h1>{ message }</h1>
-            <p>{ subtitle }</p>
-            <pre>{  JSON.stringify(user, null, 3) }</pre>
-
-        </Fragment>
+    <Fragment>
+        <h1> { saludo } </h1>
+        <p> { subtitulo } </p>
+    </Fragment>
     );
 }
 
 PrimeraApp.propTypes = {
-    title: PropTypes.string.isRequired,
-    counter: PropTypes.number.isRequired
+    saludo: PropTypes.string.isRequired
 }
 
 PrimeraApp.defaultProps = {
-    subtitle: 'This a Functional Component'
+    subtitulo: 'Soy un subtitulo'
 }
 
 export default PrimeraApp;
