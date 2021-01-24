@@ -7,5 +7,7 @@ import './index.css';
 const firstapp = document.querySelector('#app');
 // const counterapp = document.querySelector('#counter');
 
-ReactDOM.render(<PrimeraApp saludo=""/>, firstapp);
+const saludo = 'Hola, Soy Goku';
+
+ReactDOM.render(<PrimeraApp saludo={ saludo }/>, firstapp);
 // ReactDOM.render( <CounterApp count = { 0 } /> , counterapp);

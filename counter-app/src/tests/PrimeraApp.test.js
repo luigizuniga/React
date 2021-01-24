@@ -1,21 +1,33 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { shallow } from 'enzyme';
+
 import PrimeraApp from "../PrimeraApp";
 
 // Para trabajr con componentes se debe importar React
 describe('Pruebas en <PrimeraApp>', () => {
-            test('Debe de mostrar el mensaje "Hola, Soy Goku" ', () => {
-                    const saludo = "Hola, Soy Goku";
-                    // render => funcion que recibe un componente a renderizar
-                    const { getByText } = render( <PrimeraApp saludo={ saludo }/> );
+    test('Debe de mostrar <PrimeraApp /> correctamente', () => {
+        const saludo = 'Hola, Soy Goku';
+        const wrapper = shallow(<PrimeraApp saludo={ saludo }/>);
 
+        expect(wrapper).toMatchSnapshot();
+    });
 
-                    // retorno => TypeError: expect(...).toBeDocument is not a function
-                    // para añadir esta funcionalidad incluir el archivo setupTests.js
+    test('Debe de mostrar el subtitulo enviado por props', () => {
+        const saludo = 'Hola, Soy Goku';
+        const subTitulo = 'Soy un subtitulo';
 
-                    // Ex: Error Saludo modificado
-                    //  expect(getByText(saludo + '!!')).toBeInTheDocument();
+        const wrapper = shallow(
+            <PrimeraApp
+                saludo={ saludo }
+                subtitulo={ subTitulo }
+            />
+        );
 
-                    expect(getByText(saludo)).toBeInTheDocument();
-                });
-            });
+        const textParrafo = wrapper.find('p').text();
+
+        expect( textParrafo ).toBe( subTitulo );
+
+    })
+
+});
