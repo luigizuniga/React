@@ -1,14 +1,11 @@
-import React , { useState , useEffect }from 'react';
+import React , { useState, useEffect }from 'react';
+import { GifGridItem } from './GifGridItem';
 
 export const GifGrid = ({ category }) => {
-    const [ count , setCount] = useState(0);
+    const [ images , setImages ] = useState([]);
 
-    // useEffect
-    // El Hook de efecto te permite llevar a cabo efectos secundarios en componentes funcionales:
-    // Solo queremos que se ejecute la instancia de  getGifs cuando el componente es renderizado por primera vez
     useEffect(() => {
         getGifs();
-        // ,[] => el segundo argumento es un arreglo de dependencia, con esto la peticion se ejecutara solo una vez
     },[]);
 
     const getGifs = async () => {
@@ -23,16 +20,38 @@ export const GifGrid = ({ category }) => {
                 url: img.images?.downsized_medium.url
             }
         });
+
         console.log(gifs);
+        setImages( gifs );
     }
-
-
 
     return (
         <div>
             <h3>{ category }</h3>
-            <p>{ count }</p>
-            <button onClick={ ()=> setCount( count + 1 )}>+1</button>
+            <ol>
+                {
+                //#region Formas de Envio de Objeto imagen
+                /* Objeto completo
+                 * ===============
+                 * images.map( img => (<li key={ img.id }> {img.title }</li>))
+
+                 * Objeto desestructurado
+                 * images.map( ({ id, title }) => (
+                 * <li key={ id }> { title }</li>
+                 * ))
+                 */
+
+                /* Envio de imagen a componente GifGridItem
+                 * images.map( img =>(
+                 *   <GifGridItem key={ img.id} img={ img }/>
+                 *))
+                 */
+                //#endregion
+                images.map( (img)=>(
+                    <GifGridItem key={ img.id} {...img}/>
+                ))
+               }
+            </ol>
         </div>
     )
 }
