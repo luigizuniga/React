@@ -1,7 +1,10 @@
 import React , { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export const AddCategory = () => {
-    const [ inputValue, setInputValue ] = useState('Kuroshan');
+
+// setCategories => funcion llamada desde el componente GifExpertApp
+export const AddCategory = ({ setCategories }) => {
+    const [ inputValue, setInputValue ] = useState('');
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -16,7 +19,11 @@ export const AddCategory = () => {
         // de este evento, no ocurrirá.
         //#endregion
         e.preventDefault();
-        console.log('Submit Hecho');
+
+        if(inputValue.trim().length > 2){
+            setCategories( c => [...c, inputValue]);
+            setInputValue('');
+        }
     }
 
     return (
@@ -37,3 +44,9 @@ export const AddCategory = () => {
         </form>
     );
 }
+
+AddCategory.propTypes = {
+    setCategories: PropTypes.func.isRequired
+}
+
+export default AddCategory;
