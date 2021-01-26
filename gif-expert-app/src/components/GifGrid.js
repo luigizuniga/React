@@ -1,13 +1,22 @@
 import React , { Fragment }from 'react';
-import { useFetchGifs } from '../hooks/useFetchGifs';
+import { useFetchGifs } from '../hooks/useFetchGifs'; // Custom Hooks
+import { GifGridItem } from './GifGridItem';
+
 
 export const GifGrid = ({ category }) => {
-    const { loading }  = useFetchGifs();
+    const { data, loading }  = useFetchGifs( category );
 
     return (
         <Fragment>
             <h3>{ category }</h3>
-            { loading ? 'Cargando...' : 'Data cargada' }
+            { loading && <p>loading</p> }
+            <div className="card-grid">
+                {
+                   data.map(img => (
+                    <GifGridItem key={ img.id } {...img}/>
+                   ))
+                }
+            </div>
         </Fragment>
     )
 }
