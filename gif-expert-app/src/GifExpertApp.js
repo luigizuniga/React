@@ -1,19 +1,14 @@
 import React, { useState,Fragment } from 'react';
+import { AddCategory } from './components/AddCategory';
 
 export const GifExpertApp = () => {
-   //const categories = ['Mary','Sebastian','Constanza'];
-
-   const [ categories, setCategories] = useState(['Mary','Sebastian','Constanza']);
-   const handleAdd = () => {
-    //    categories.push('Albert'); console.log(categories);
-        setCategories( cat => [...cat,'Luigi']);
-   }
+   const [ categories ] = useState(['Mary','Sebastian','Constanza']);
 
     return (
         <Fragment>
             <h2>GitExpertApp</h2>
             <hr/>
-            <button onClick={ handleAdd }>Agregar</button>
+           <AddCategory />
             <ol>
                 {
                     categories.map(category =>  {
