@@ -16,13 +16,13 @@ export const CounterApp = () => {
             <div className="row lign-items-center mt-2">
                 <div className="col-md-6">
                     <label for="control_1" className="form-label"> COUNTER PROPERTY 1 </label>
-                    <input type="text" className="form-control " placeholder="value"
-                           aria-label="control_1" id="control_1" value={ counter_1 }/>
+                    <input type="text" className="form-control "
+                           id="control_1" value={ counter_1 } />
                 </div>
                 <div className="col-md-6">
                     <label for="control_2" className="form-label">COUNTER PROPERTY 2</label>
-                    <input type="text" className="form-control " placeholder="value"
-                           aria-label="control_2" id="control_2" value={ counter_2 }/>
+                    <input type="text" className="form-control "
+                           id="control_2" value={ counter_2 }/>
                 </div>
                 <div className="col-md-6">
                     <label for="normalState" className="form-label">COUNTER NORMAL</label>
