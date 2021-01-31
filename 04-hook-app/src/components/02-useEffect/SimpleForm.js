@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import { Message } from './Message';
 
 export const SimpleForm = () => {
     const [formState , setFormState ] = useState({
@@ -23,6 +24,7 @@ export const SimpleForm = () => {
 
         // #endregion
          setFormState({
+             // ...formState contiene el estado de los input los cuales son retornados su event.target
              ...formState,
              [ target.name ]:  target.value
          });
@@ -72,6 +74,8 @@ export const SimpleForm = () => {
                                autoComplete="off"
                                />
                     </div>
+                    {/* condicional donde el valor de name = 123 se visualiza el componente Message indicando las coordenadas */}
+                     { (name === '123') && <Message/> }
                 </div>
             </div>
         </Fragment>
