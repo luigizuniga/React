@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 // import { SimpleForm } from './components/02-useEffect/SimpleForm';
 // import { FormWithCustomHook } from './components/02-useEffect/FormWithCustomHook';
 import { MultipleCustomHook } from './components/03-useFetch/MultipleCustomHook';
+import { FocusScreen } from './components/04-useRef/FocusScreen';
 
 //#region REACTDOM DEFAULT IMPORT
 // ReactDOM.render(
@@ -17,6 +18,6 @@ import { MultipleCustomHook } from './components/03-useFetch/MultipleCustomHook'
 //#endregion
 
 const hooksapp = document.querySelector('#root');
-ReactDOM.render( <MultipleCustomHook /> , hooksapp );
+ReactDOM.render( <FocusScreen /> , hooksapp );
 
 
