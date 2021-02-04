@@ -8,7 +8,9 @@ import ReactDOM from 'react-dom';
 // import { MultipleCustomHook } from './components/03-useFetch/MultipleCustomHook';
 // import { FocusScreen } from './components/04-useRef/FocusScreen';
 // import { UseRefRealExample } from './components/04-useRef/UseRefRealExample';
-import { Layout } from './components/05-useLayoutEffect/Layout';
+// import { Layout } from './components/05-useLayoutEffect/Layout';
+// import { Memorize } from './components/06-memos/Memorize';
+import { MemoHook } from './components/06-memos/MemoHook';
 
 const hooksapp = document.querySelector('#root');
-ReactDOM.render( <Layout /> , hooksapp);
+ReactDOM.render( <MemoHook /> , hooksapp);
