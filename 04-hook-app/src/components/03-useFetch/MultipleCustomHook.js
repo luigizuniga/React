@@ -5,21 +5,6 @@ import { useFetch } from '../../hooks/useFetch';
 export const MultipleCustomHook = () => {
     const { counter , increment } = useCounter(1);
     const { loading, data } = useFetch(`https://www.breakingbadapi.com/api/quotes/${ counter }`);
-
-    //#region !negacion con valor de retorno
-
-    // Example
-    // null => null
-    // !null => true
-    // !null && 'message' => si es true retorna 'message'
-    // !!null && 'mesage' => false
-
-    //#endregion
-
-    //#region !! data && data[0]
-    // En caso de retornar false, no evalua la segunda condicion
-    // por lo que author y quote retornarian undefined
-    //#endregion
     const { author , quote } = !!data && data[0];
 
     return (
