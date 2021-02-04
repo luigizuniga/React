@@ -7,20 +7,8 @@ import ReactDOM from 'react-dom';
 // import { FormWithCustomHook } from './components/02-useEffect/FormWithCustomHook';
 // import { MultipleCustomHook } from './components/03-useFetch/MultipleCustomHook';
 // import { FocusScreen } from './components/04-useRef/FocusScreen';
-import { UseRefRealExample } from './components/04-useRef/UseRefRealExample';
-
-//#region REACTDOM DEFAULT IMPORT
-// ReactDOM.render(
-//   <React.StrictMode>
-//     < />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-//#endregion
-
-
+// import { UseRefRealExample } from './components/04-useRef/UseRefRealExample';
+import { Layout } from './components/05-useLayoutEffect/Layout';
 
 const hooksapp = document.querySelector('#root');
-ReactDOM.render( <UseRefRealExample /> , hooksapp );
-
-
+ReactDOM.render( <Layout /> , hooksapp);
