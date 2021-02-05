@@ -11,7 +11,8 @@ import ReactDOM from 'react-dom';
 // import { Layout } from './components/05-useLayoutEffect/Layout';
 // import { Memorize } from './components/06-memos/Memorize';
 // import { MemoHook } from './components/06-memos/MemoHook';
-import  { CallBackHooks } from './components/06-memos/CallBackHooks';
+// import  { CallBackHooks } from './components/06-memos/CallBackHooks';
+import { Padre } from './components/07-Tarea/Padre';
 
 const hooksapp = document.querySelector('#root');
-ReactDOM.render( <CallBackHooks /> , hooksapp);
+ReactDOM.render( <Padre /> , hooksapp);
