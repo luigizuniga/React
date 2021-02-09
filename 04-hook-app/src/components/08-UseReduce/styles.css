@@ -4,3 +4,14 @@
     margin: 1rem -.75rem 0;
     border-width: 1px 0 0;
 }
+
+
+.list-group-item {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.complete {
+    text-decoration: line-through;
+}
