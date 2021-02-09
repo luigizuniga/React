@@ -37,14 +37,12 @@ export const TodoApp = () => {
     const handleToggle = (todoId) => {
 
         const action = {
-            type: 'toggle',
+            type: 'toggle'
             payload: todoId
         }
 
         dispatch(action);
     }
-
-
 
 
     return (

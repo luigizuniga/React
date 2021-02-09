@@ -13,7 +13,9 @@ import ReactDOM from 'react-dom';
 // import { MemoHook } from './components/06-memos/MemoHook';
 // import  { CallBackHooks } from './components/06-memos/CallBackHooks';
 // import { Padre } from './components/07-Tarea/Padre';
-import { TodoApp } from './components/08-UseReduce/TodoApp';
+// import { TodoApp } from './components/08-UseReduce/TodoApp';
+
+import { MainApp } from  './components/09-useContext/MainApp';
 
 const hooksapp = document.querySelector('#root');
-ReactDOM.render( <TodoApp /> , hooksapp);
+ReactDOM.render( <MainApp /> , hooksapp);
