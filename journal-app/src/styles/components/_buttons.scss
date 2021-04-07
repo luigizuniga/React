@@ -25,6 +25,16 @@
     }
 }
 
+.btn-logout {
+    margin-top: 10px;
+    background-color: $light-grey;
+    color: black;
+    &:hover {
+        background-color: $primary;
+        color: white;
+    }
+}
+
 .btn-block {
     width: 100%;
 }
