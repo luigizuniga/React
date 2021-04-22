@@ -12,7 +12,7 @@ export const NoteScreen = () => {
                     type="text"
                     placeholder="some awesome title"
                     className="notes__title-input"
-                    autocomplete="off"
+                    autoComplete="off"
                 />
 
                 <textarea placeholder="what happened today"
