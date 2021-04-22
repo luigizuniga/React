@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
+import { useDispatch } from 'react-redux';
 import validator from 'validator';
+import { setError, removeError } from '../../actions/ui';
+
 
 export const RegisterScreen = () => {
+    // use Dispatch for store/reducer (auth- uireducer )
+    const dispatch = useDispatch();
 
    //A hook to access useForm function with params ( formValues(value return), event).
     const [ formValues, handleInputChange ] = useForm({
@@ -26,16 +31,17 @@ export const RegisterScreen = () => {
 
     const isFormValid = () => {
         if( name.trim().length === 0){
-            console.log('Name is required');
-            return false;
+             dispatch(setError('Name is required'))
+            return false
         }else if(!validator.isEmail( email )){
-            console.log('Email is required');
-            return false;
+            dispatch(setError('Email is required'))
+            return false
         }else if( password !== password2 || password.length < 5){
-            console.log('Password is required');
-            return false;
+             dispatch(setError('Password is required'))
+            return false
         }
 
+        dispatch(removeError());
         return true;
     }
 
