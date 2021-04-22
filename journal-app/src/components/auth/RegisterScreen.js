@@ -1,14 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useForm } from '../../hooks/useForm';
-import { useDispatch } from 'react-redux';
+import { useDispatch , useSelector } from 'react-redux';
 import validator from 'validator';
+
+import { useForm } from '../../hooks/useForm';
 import { setError, removeError } from '../../actions/ui';
 
 
 export const RegisterScreen = () => {
     // use Dispatch for store/reducer (auth- uireducer )
     const dispatch = useDispatch();
+
+    // useSlector
+    // Example return state msgError value
+    // const state  = useSelector( state => state.ui );
+    // console.log(state);
+    const { msgError } = useSelector( state => state.ui );
 
    //A hook to access useForm function with params ( formValues(value return), event).
     const [ formValues, handleInputChange ] = useForm({
@@ -48,8 +55,14 @@ export const RegisterScreen = () => {
     return (
         <div>
             <h3 className="auth__title">Register</h3>
-
             <form onSubmit={ handleRegister} >
+                {
+                    msgError && (
+                     <div className="auth__alert-error ">
+                         { msgError }
+                    </div>
+                    )
+                }
                 <input
                     type="text"
                     placeholder="Name"
