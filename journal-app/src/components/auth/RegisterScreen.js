@@ -1,18 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useForm } from '../../hooks/useForm';
 
 export const RegisterScreen = () => {
+
+   //A hook to access useForm function with params ( formValues(value return), event).
+    const [ formValues, handleInputChange ] = useForm({
+        name: 'username',
+        email:'useremail@mail.com',
+        password:'abc123',
+        password2:'abc123'
+    });
+
+    const { name , email, password, password2 } = formValues;
+
+    const handleRegister =  (e) => {
+        e.preventDefault();
+        console.log(name,email,password,password2);
+        console.log(e);
+
+    }
+
     return (
         <div>
             <h3 className="auth__title">Register</h3>
 
-            <form>
+            <form onSubmit={ handleRegister} >
                 <input
                     type="text"
                     placeholder="Name"
                     name="name"
                     className="auth__input"
-                    autocomplete="off"
+                    autoComplete="off"
+                    value={ name }
+                    onChange={ handleInputChange }
                 />
 
                 <input
@@ -20,7 +41,9 @@ export const RegisterScreen = () => {
                     placeholder="Email"
                     name="email"
                     className="auth__input"
-                    autocomplete="off"
+                    autoComplete="off"
+                    value={ email }
+                    onChange={ handleInputChange }
                 />
 
                 <input
@@ -28,6 +51,8 @@ export const RegisterScreen = () => {
                     placeholder="Password"
                     name="password"
                     className="auth__input"
+                    value={ password }
+                    onChange={ handleInputChange }
                 />
 
                 <input
@@ -35,6 +60,8 @@ export const RegisterScreen = () => {
                     placeholder="Confirm password"
                     name="password2"
                     className="auth__input"
+                    value={ password2 }
+                    onChange={ handleInputChange }
                 />
 
                 <button type="submit" className="btn btn-primary btn-block mb-5">
