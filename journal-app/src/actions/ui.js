@@ -1,4 +1,5 @@
 import { types } from '../types/types';
+// Acciones que modifican nuestro state
 
 export const setError = ( err ) => ({
     type: types.uiSetError,
@@ -9,3 +10,10 @@ export const removeError = ( err ) => ({
     type: types.uiRemoveError
 });
 
+export const startLoading = () => ({
+    type: types.uiStartLoading
+});
+
+export const finishLoading = () => ({
+    type: types.uiFinishLoading
+});

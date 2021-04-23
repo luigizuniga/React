@@ -1,3 +1,4 @@
+// Estados types
 export const types = {
     login: '[Auth] Login',
     logout: '[Auth] Logout',
@@ -6,5 +7,5 @@ export const types = {
     uiRemoveError:'[UI] Set Error',
 
     uiStartLoading:'[UI] Start loading',
-    uiFinishloading:'[UI] Finish loading'
+    uiFinishLoading:'[UI] Finish loading'
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { startLoginEmailPassword , startGoogleLogin } from '../../actions/auth';
 
@@ -10,6 +10,9 @@ export const LoginScreen = () => {
     //A hook to access the redux dispatch function.
     const dispatch = useDispatch();
 
+    //State for disabled btn login
+    const { loading } = useSelector( state => state.ui );
+
     //A custom hook
     const [ formValues , handleInputChange ] = useForm({
         email:'luiginando@gmail.com',
@@ -17,7 +20,6 @@ export const LoginScreen = () => {
     });
 
     const { email, password } = formValues;
-
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -55,6 +57,7 @@ export const LoginScreen = () => {
                 <button
                     type="submit"
                     className="btn btn-primary btn-block"
+                    disabled={ loading }
                 >
                 Login
                 </button>
@@ -63,6 +66,7 @@ export const LoginScreen = () => {
                     <p>Login with social networks</p>
                     <div className="google-btn"
                          onClick={ handleGoogleLogin }
+
                     >
                         <div className="google-icon-wrapper">
                             <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
