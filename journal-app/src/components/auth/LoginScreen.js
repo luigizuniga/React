@@ -12,8 +12,8 @@ export const LoginScreen = () => {
 
     //A custom hook
     const [ formValues , handleInputChange ] = useForm({
-        email: 'shinzo@sasage.io',
-        password: '123456'
+        email:'luiginando@gmail.com',
+        password:'123456',
     });
 
     const { email, password } = formValues;
@@ -25,7 +25,7 @@ export const LoginScreen = () => {
     }
 
     const handleGoogleLogin = () => {
-        dispatch(startGoogleLogin())
+        dispatch(startGoogleLogin());
     }
 
     return (
