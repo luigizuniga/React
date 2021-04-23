@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -16,15 +16,27 @@ import { login } from '../actions/auth';
 export const AppRouter = () => {
     const dispatch = useDispatch();
 
-    // onAuthorChanged(Observable se ejecuta mas de una vez) funcion que notifica cada vez que la autentificacion cambia
+    const [ checking, setChecking ] = useState(true);
+    const [ isLoggedIn, setIsLoggedIn ] = useState(false);
 
+
+    // onAuthorChanged(Observable se ejecuta mas de una vez) funcion que notifica cada vez que la autentificacion cambia
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user)=>{
             if( user?.uid ) {
-                dispatch(login(user.uid, user.displayName))
+                dispatch(login(user.uid, user.displayName));
+                setChecking(true);
+            }else{
+                setChecking(false);
             }
         })
-    }, [])
+    }, [dispatch, setChecking, setIsLoggedIn])
+
+    if ( checking ) {
+        return (
+            <h1>Espere...</h1>
+        )
+    }
 
     return (
         <Router>
