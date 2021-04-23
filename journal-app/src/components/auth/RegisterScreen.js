@@ -5,7 +5,7 @@ import validator from 'validator';
 
 import { useForm } from '../../hooks/useForm';
 import { setError, removeError } from '../../actions/ui';
-
+import { startRegisterWithEmailPasswordName } from '../../actions/auth';
 
 export const RegisterScreen = () => {
     // use Dispatch for store/reducer (auth- uireducer )
@@ -19,20 +19,19 @@ export const RegisterScreen = () => {
 
    //A hook to access useForm function with params ( formValues(value return), event).
     const [ formValues, handleInputChange ] = useForm({
-        name: 'username',
-        email:'useremail@mail.com',
-        password:'abc123',
-        password2:'abc123'
+        name: 'luigi',
+        email:'luiginando@gmail.com',
+        password:'123456',
+        password2:'123456'
     });
 
     const { name , email, password, password2 } = formValues;
 
     const handleRegister =  (e) => {
         e.preventDefault();
-        console.log(name,email,password,password2);
-
+        // console.log(name,email,password,password2);
         if(isFormValid()){
-            console.log("Formulario Valido");
+            dispatch(startRegisterWithEmailPasswordName(email,password,name));
         }
     }
 
